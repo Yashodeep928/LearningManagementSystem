@@ -43,14 +43,12 @@ export default async function DashboardPage() {
   const lessons = (lessonsRes.data ?? []) as Lesson[];
   const progress = (progressRes.data ?? []) as LessonProgress[];
 
-  // ✅ Map enrolled courses and lessons
   const enrolledCourseIds = new Set(enrollments.map(e => e.course_id));
   const enrolledLessons = lessons.filter(l => enrolledCourseIds.has(l.course_id));
   const enrolledLessonIds = new Set(enrolledLessons.map(l => l.id));
 
   const enrolledProgress = progress.filter(p => enrolledLessonIds.has(p.lesson_id));
 
-  // ✅ Compute stats
   const completedLessons = enrolledProgress.filter(p => p.status === "Completed").length;
   const scores = enrolledProgress.filter(p => p.best_score !== null).map(p => p.best_score as number);
   const averageScore = scores.length ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
@@ -70,7 +68,6 @@ export default async function DashboardPage() {
         <Stat title="Average Score" value={`${averageScore}%`} />
       </div>
 
-      {/* Your Courses */}
       <div className="bg-white border rounded-lg p-6">
         <h2 className="text-xl font-semibold mb-4">Your Courses</h2>
 
