@@ -11,7 +11,6 @@ export default function Navigation() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Hide navbar on auth pages
   if (pathname?.startsWith("/login") || pathname?.startsWith("/signup")) {
     return null;
   }
