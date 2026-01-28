@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { AuthProvider } from "../app/context/AuthProvider";
 import Navigation from "./components/Navigation";
 import "./globals.css";
