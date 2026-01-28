@@ -40,7 +40,6 @@ export default function Navigation() {
               LMS
             </Link>
 
-            {/* Desktop Links */}
             <div className="hidden md:flex space-x-2">
               <Link
                 href="/courses"
@@ -60,7 +59,6 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Right */}
           <div className="flex items-center space-x-3">
             <span className="hidden sm:block text-sm text-gray-600">
               {user.email}
